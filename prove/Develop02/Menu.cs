@@ -10,7 +10,7 @@ class Menu {
     }
     int finished;
     public void Run() {
-        while(finished != 1) {
+        while(true) {
             Console.WriteLine("1. Write\n2. Display\n3. Load\n4. Save\n5. Quit\n\n");
             Console.Write("What would you like to do? # ");
 
@@ -48,10 +48,12 @@ class Menu {
 
                 case 5:
                     Console.Write("Quitting...");
-                    finished = 1;
                     break;
                 default:
                     return;
+            }
+            if (optint == 5) {
+                break;
             }
 
         }
