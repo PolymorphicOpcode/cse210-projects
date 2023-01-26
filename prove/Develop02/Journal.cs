@@ -42,5 +42,13 @@ class Journal {
             string prompt = reader.ReadLine();
             string response = reader.ReadLine();
             string date = reader.ReadLine();
+            var timestamp = DateTime.Parse(date);
+            
+            Entry entry = new Entry();
+            entry._prompt = prompt;
+            entry._content = response;
+            entry._timestamp = timestamp;
+            _entries.Add(entry);
+
     }}
 }
