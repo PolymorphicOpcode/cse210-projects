@@ -18,10 +18,25 @@ class Menu {
 
             switch(optint) {
                 case 1:
-                    Console.WriteLine("test");
+                    Console.Write("Writing");
+                    Random r = new Random();
+                    Console.WriteLine(_prompts[r.Next(0,_prompts.Count()-1)]);
+
                     break;
                 case 2:
-                    Console.WriteLine("test2");
+                    Console.Write("Display");
+                    break;
+                case 3:
+                    Console.WriteLine("Loading...");
+
+                    Console.Write("Filename: ");
+                    string filename = Console.ReadLine();
+                    break;
+                case 4:
+                    Console.Write("Saving...");
+                    break;
+                case 5:
+                    Console.Write("Quitting...");
                     break;
                 default:
                     break;
@@ -29,8 +44,6 @@ class Menu {
 
             Console.WriteLine("1. Write\n2. Display\n3. Load\n4. Save\n5. Quit");
 
-            Random r = new Random();
-            Console.WriteLine(_prompts[r.Next(0,_prompts.Count()-1)]);
         }
     }
 }

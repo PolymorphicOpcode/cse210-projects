@@ -7,7 +7,14 @@ class Journal {
     
     public void Save(string filename) {}
 
-    public void Load(string filename) {}
+    public void Load(string filename) {
+        string[] lines = System.IO.File.ReadAllLines(filename);
+
+        foreach (string line in lines) {
+            string[parts] = line.split(",");
+
+        }
+    }
 
     public void AddEntry(Entry journalentry){
         _entries.Add(journalentry);
