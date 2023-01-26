@@ -2,22 +2,45 @@ using System;
 
 class Journal {
     public List<Entry> _entries = new List<Entry>();
-
-    public void DisplayJournal() {}
-    
-    public void Save(string filename) {}
-
-    public void Load(string filename) {
-        string[] lines = System.IO.File.ReadAllLines(filename);
-
-        foreach (string line in lines) {
-            string[parts] = line.split(",");
-
+    DateTime _datetime = DateTime.Now;
+    public void AddEntry(string prompt, string response) {
+        Entry entry = new Entry();
+        entry._timestamp = _datetime;
+        entry._prompt = prompt;
+        entry._content = response;
+        _entries.Add(entry);
+    }
+        public void DisplayJournal()
+    {
+        foreach (Entry entry in _entries)
+        {
+            Console.WriteLine("Date: " + entry._timestamp);
+            Console.WriteLine("Prompt: " + entry._prompt);
+            Console.WriteLine("Response: " + entry._content);
+            Console.WriteLine();
         }
     }
-
-    public void AddEntry(Entry journalentry){
-        _entries.Add(journalentry);
+    
+    public void Save(string filename)
+    {
+        StreamWriter writer = new StreamWriter(filename);
+        foreach (Entry entry in _entries)
+        {
+            writer.WriteLine(entry._prompt);
+            writer.WriteLine(entry._content);
+            writer.WriteLine(entry._timestamp);
+        }
+        writer.Close();
     }
 
+    public void Load(string filename)
+    {
+        _entries.Clear();
+        StreamReader reader = new StreamReader(filename);
+        while (!reader.EndOfStream)
+        {
+            string prompt = reader.ReadLine();
+            string response = reader.ReadLine();
+            string date = reader.ReadLine();
+    }}
 }
