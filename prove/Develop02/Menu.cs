@@ -8,7 +8,7 @@ class Menu {
         _prompts.Add("What did you do today?");
         _prompts.Add("How are you feeling?");
     }
-    int finished;
+    
     public void Run() {
         while(true) {
             Console.WriteLine("1. Write\n2. Display\n3. Load\n4. Save\n5. Quit\n\n");
