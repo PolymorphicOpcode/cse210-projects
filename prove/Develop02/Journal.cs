@@ -4,7 +4,10 @@ class Journal {
     public List<Entry> _entries = new List<Entry>();
     DateTime _datetime = DateTime.Now;
     public void AddEntry(string prompt, string response) {
-        Entry entry = new Entry(_datetime, response, prompt);
+        Entry entry = new Entry();
+        entry._timestamp = _datetime;
+        entry._prompt = prompt;
+        entry._content = response;
         _entries.Add(entry);
     }
         public void DisplayJournal()
@@ -41,7 +44,10 @@ class Journal {
             string date = reader.ReadLine();
             var timestamp = DateTime.Parse(date);
 
-            Entry entry = new Entry(timestamp, response, prompt);
+            Entry entry = new Entry();
+            entry._prompt = prompt;
+            entry._content = response;
+            entry._timestamp = timestamp;
             _entries.Add(entry);
 
     }}
