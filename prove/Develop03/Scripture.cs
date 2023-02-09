@@ -1,8 +1,13 @@
 using System;
+using System.Collections.Generic;
+using System.Text;
+
 class Scripture {
     private Reference _ref {get; set;}
     public List<Word> _words = new List<Word>();
     private int times = 0;
+    private static Random _random = new Random(DateTime.Now.Millisecond);
+
  
     public Scripture(Reference reference, String text) {
         _ref = reference;
@@ -14,21 +19,23 @@ class Scripture {
     }
     public void HideWords() {
         for(int i=0; i<=2; i++) {
-            Random random = new Random();
-            int randomNumber = random.Next(0,_words.Count()-1);
+            int randomNumber = _random.Next(0,_words.Count());
             var word = _words[randomNumber];
             
             if(word.isHidden() == false) {
-            word.Hide();
+                word.Hide();
+                times++;
             }
             else {
                 i--;
             }
-            times++;
         }
     }
     public Boolean IsCompletelyHidden(){
-        if(times >= (_words.Count()+1)) {
+        // Checks if the amount of times 3 words hidden 
+        // is within 2 words of the goal.
+        // Avoids repeats.
+        if(times >= (_words.Count())-2) {
             return true;
         }
         else {
@@ -36,10 +43,10 @@ class Scripture {
         }
     }
     public void Display() {
-        string sentence = null;
-        foreach(Word word in _words){
+        StringBuilder sentence = new StringBuilder();
+        foreach(Word word in _words) {
             string text = word.GetDisplay();
-            sentence = sentence + " " + text;
+            sentence.Append(" ").Append(text);
         }
         Console.WriteLine($"{_ref.GetDisplay()} -{sentence}");
     }
