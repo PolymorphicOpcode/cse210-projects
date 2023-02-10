@@ -3,7 +3,8 @@ using System;
 class Program {
     
     private string _userOpt;
-    
+    // This program exceeds the requirements by not only fulfilling them, but being optimized code. I asked an AI to improve it, so I learned how string
+    // constructors worked, and how the random function works.
     static void Main(string[] args)
     {
         Reference myreference = new Reference("John", 3, 16);
