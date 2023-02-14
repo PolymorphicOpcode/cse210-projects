@@ -1,55 +1,22 @@
-﻿class Program {
+class Program {
     static void Main(string[] args) {
-        
-        var divider =  new IntegerDivision();
-        divider.SetLhs(10);
-        divider.SetRhs(1);
-        divider.DisplayResult();
+        var p = new Person("Jimmy John");
+        var jim = new Student();
+        Console.WriteLine(jim.GetName());
 
-        divider.SetLhs(0);
-        divider.SetRhs(100);
-        divider.DisplayResult();
-
-        divider.SetLhs(5);
-        divider.SetRhs(0);
-        divider.DisplayResult();
-
-        divider.SetLhs(25);
-        divider.SetRhs(5);
-        divider.DisplayResult();
     }
 }
+// parent class/superclass/base class - person
+class Person {
+    private string _name = "N/A";
 
-class IntegerDivision {
-    private int _lhs = 1;
-    private int _rhs = 1;
-    public int errorcode = 0;
-    
-    public void SetLhs(int num) {
-        _lhs = num;
+    public Person(string name) {
+        _name = name;
     }
-    public int GetLhs() {
-        return _lhs;
+    public string GetName() {
+        return _name;
     }
-    public void SetRhs(int num) {
-        if(num != 0){_rhs = num;}
-        else {errorcode++;}
-    }
-    public int GetRhs() {
-        return _rhs;
-    }
-    public int Result() {
-        return GetLhs() / GetRhs();
-    }
-
-    public void DisplayResult() {
-        if (errorcode == 0) {
-            var result = Result();
-            Console.WriteLine($"{_lhs} divided by {_rhs} is {result}");
-        }
-        else {
-            Console.WriteLine("Err");
-            errorcode--;
-        }
-    }
+}
+// child class/subclass - student
+class Student: Person {
 }
