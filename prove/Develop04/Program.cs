@@ -2,23 +2,13 @@ using System;
 
 class Program
     {
+        // Above and beyond code is shown in a new way to write a simple if/else
+        // Console.Write(i % 2 == 0 ? "Breathe in..." : "Breathe out...");
+        // This code is used in the breathing exercise
+
         static void Main(string[] args)
         {
             Menu menu = new Menu();    
             menu.ShowMenu();
-        }
-    }
-    public class Spinner
-    {
-        public static void Spin(int seconds)
-        {
-            int delay = 100;
-            for (int i = 0; i < seconds * 1000 / delay; i++)
-            {
-                Console.Write("\\");
-                Console.Write("\b|");
-                System.Threading.Thread.Sleep(delay);
-            }
-            Console.WriteLine();
         }
     }

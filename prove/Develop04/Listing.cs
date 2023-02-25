@@ -24,5 +24,6 @@ public class Listing : Activity
                 }
             }
             Console.WriteLine($"You listed {counter} items.");
+            base.EndActivity();
         }
     }

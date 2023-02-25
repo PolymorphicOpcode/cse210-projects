@@ -6,10 +6,7 @@ public class Menu
             {
                 Console.WriteLine("Welcome to your activity session");
                 Console.WriteLine("Please select an activity:");
-                Console.WriteLine("1. Breathing");
-                Console.WriteLine("2. Reflection");
-                Console.WriteLine("3. Listing");
-                Console.WriteLine("4. Exit");
+                Console.WriteLine("1. Breathing\n2. Reflection\n3. Listing\n4. Exit");
 
                 string input = Console.ReadLine();
 
