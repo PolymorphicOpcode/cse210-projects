@@ -7,7 +7,7 @@ public class Breathing : Activity
             base.StartActivity();
             for (int i = 0; i < _duration / 4; i++)
             {
-                Console.Write(i % 2 == 0 ? "Breathe in..." : "Breathe out...");
+                Console.WriteLine(i % 2 == 0 ? "Breathe in..." : "Breathe out...");
                 Spinner.Spin(4);
             }
             base.EndActivity();
